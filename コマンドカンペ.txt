@@ -1,0 +1,10 @@
+
+# ローカルサーバー
+python3 -m http.server 5500
+
+# Github
+git status # ステータス確認
+git add index.html        # 1つだけ追加
+git add .                 # 現在のディレクトリ以下をまとめて追加
+git commit -m "Add initial index.html"
+git push -u origin main # -uからは二度目以降不要
