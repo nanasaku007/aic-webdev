@@ -66,6 +66,7 @@ body {
     var(--bg);
   font-family: Inter, "Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
+  position: relative;
 }
 
 a {
@@ -92,12 +93,19 @@ a:hover {
   backdrop-filter: blur(14px);
 }
 
+.page,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
 .site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-block: var(--space-3);
   gap: var(--space-3);
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -142,10 +150,11 @@ a:hover {
   align-items: center;
   padding: 0.2rem;
   border-radius: 999px;
-  border: 1px solid var(--border);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
   background: var(--surface);
   gap: 0.15rem;
   flex: 0 0 auto;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
 }
 
 .theme-switch__button {
@@ -155,9 +164,17 @@ a:hover {
   color: var(--muted);
   font: inherit;
   font-weight: 600;
-  padding: 0.4rem 0.7rem;
+  padding: 0.55rem 0.7rem;
   border-radius: 999px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+}
+
+.theme-switch__icon {
+  display: block;
 }
 
 .theme-switch__button:hover {
@@ -168,7 +185,11 @@ a:hover {
 .theme-switch__button[aria-pressed="true"] {
   color: var(--text);
   background: var(--surface-2);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16);
+}
+
+[data-ripple-toggle][aria-pressed="false"] {
+  opacity: 0.65;
 }
 
 .theme-switch__button:focus-visible {
@@ -226,6 +247,45 @@ a:hover {
   font-size: clamp(2.1rem, 4.2vw, 3.25rem);
   letter-spacing: -0.04em;
   line-height: 1.08;
+}
+
+.ripple-dots {
+  margin-top: var(--space-3);
+  height: clamp(280px, 38vw, 420px);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+
+.ripple-dots--bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  margin-top: 0;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  pointer-events: none;
+  opacity: 0.55;
+  filter: blur(0.1px);
+  -webkit-mask-image: radial-gradient(520px 320px at 50% 38%, rgba(0, 0, 0, 0.95), transparent 70%);
+  mask-image: radial-gradient(520px 320px at 50% 38%, rgba(0, 0, 0, 0.95), transparent 70%);
+}
+
+.ripple-dots__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+}
+
+.ripple-dots--bg .ripple-dots__canvas {
+  cursor: default;
 }
 
 .lead {

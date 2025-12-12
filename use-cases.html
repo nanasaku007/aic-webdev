@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>活用例｜AIエージェント入門</title>
+  <script>
+    (() => {
+      const stored = localStorage.getItem("theme");
+      const theme =
+        stored === "light" || stored === "dark"
+          ? stored
+          : matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html#top" aria-label="ホームへ">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>AIエージェント入門</span>
+      </a>
+      <nav class="nav" aria-label="サイトナビゲーション">
+        <a href="index.html#experience">体験</a>
+        <a href="index.html#architecture">アーキテクチャ</a>
+        <a href="index.html#tools">実装</a>
+        <a href="index.html#definition">位置づけ</a>
+        <a href="use-cases.html" aria-current="page">活用例</a>
+        <a href="checklist.html">チェックリスト</a>
+      </nav>
+      <div class="theme-switch" role="group" aria-label="テーマ切り替え">
+        <button type="button" class="theme-switch__button" data-theme-value="light" aria-label="ライトモード" title="ライトモード">
+          <svg class="theme-switch__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12a6 6 0 0 1 0 12Zm0-14a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0 19a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1ZM4 13H3a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2Zm19 0h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2ZM6.22 6.22a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41Zm13.68 13.68a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41ZM17.78 6.22a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0ZM4.32 19.9a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0Z"/>
+          </svg>
+        </button>
+        <button type="button" class="theme-switch__button" data-theme-value="dark" aria-label="ナイトモード" title="ナイトモード">
+          <svg class="theme-switch__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M21 14.6A8.5 8.5 0 0 1 9.4 3a7.5 7.5 0 1 0 11.6 11.6Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <aside class="side-banner" aria-label="このページの目次">
+      <a href="index.html#top">Home</a>
+      <a href="#scenarios">シナリオ</a>
+      <a href="#patterns">実装パターン</a>
+      <a href="#metrics">評価軸</a>
+    </aside>
+
+    <main id="top" class="main">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1>AIエージェントの活用例</h1>
+            <p class="lead">「情報収集→推論→実行」をどこに適用するか。ホームの内容を踏まえて、導入しやすいシナリオと設計の勘所をまとめます。</p>
+            <div class="actions">
+              <a class="button button--primary" href="#scenarios">シナリオを見る</a>
+              <a class="button button--secondary" href="checklist.html">チェックリストへ</a>
+            </div>
+          </div>
+
+          <aside class="panel" aria-label="補足">
+            <div class="panel__caption">
+              目標は「便利そう」から「任せられる」へ。手戻りを減らすには、失敗時の挙動・権限・監査を最初に決めるのが近道です。
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="scenarios" class="section">
+        <div class="container">
+          <h2>すぐ試せるシナリオ</h2>
+          <ul class="list">
+            <li><strong>社内ナレッジQ&A</strong>：ドキュメント検索＋要約＋根拠提示。まずは「答え」より「探す時間を減らす」狙いが堅いです。</li>
+            <li><strong>チケット起票アシスト</strong>：会話から要件を整理し、テンプレに埋めて起票。抜け漏れチェックを“最後に”入れると品質が安定します。</li>
+            <li><strong>ログ調査の一次対応</strong>：状況整理→観測ポイント提示→クエリ生成。実行は人間承認にしやすく、価値が出やすい領域です。</li>
+            <li><strong>定型運用の自動化</strong>：手順書をステップ化し、実行前に差分と影響を説明。失敗時のロールバックをセットで設計します。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="patterns" class="section">
+        <div class="container">
+          <h2>実装の型（ホーム内容の延長）</h2>
+          <ul class="list">
+            <li><strong>ツール実行を分離する</strong>：推論（計画）と実行（副作用）を分け、実行前に「何をするか」を短く表示します。</li>
+            <li><strong>ステップ化（LangGraph等）</strong>：収集→整理→実行→検証をノードに分け、失敗時に「どこで止まったか」を明確にします。</li>
+            <li><strong>役割分担（A2A）</strong>：検索役・要約役・実行役を分けると、プロンプトと権限管理が簡単になります。</li>
+            <li><strong>チャンネル横断（MCP）</strong>：CLI/WEB/APIで同じ状態管理にすると、「途中から別UIで続き」が作りやすいです。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="metrics" class="section">
+        <div class="container">
+          <h2>うまくいっているかの評価軸</h2>
+          <ul class="list">
+            <li><strong>時間短縮</strong>：探索・整理・実行準備の時間が減っているか。</li>
+            <li><strong>再現性</strong>：別の担当者でも同じ品質で進むか（手順が残るか）。</li>
+            <li><strong>安全性</strong>：権限・承認・監査ログが要件に合うか。</li>
+            <li><strong>失敗の扱いやすさ</strong>：途中で止まっても復旧できるか、誤実行の影響を抑えられるか。</li>
+          </ul>
+          <p>具体的な設計チェックは <a href="checklist.html">チェックリスト</a> にまとめました。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© nanasaku007</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = Array.from(document.querySelectorAll("[data-theme-value]"));
+
+      const apply = (theme) => {
+        root.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+        for (const button of buttons) {
+          button.setAttribute("aria-pressed", String(button.dataset.themeValue === theme));
+        }
+      };
+
+      const current = root.dataset.theme === "dark" ? "dark" : "light";
+      apply(current);
+
+      for (const button of buttons) {
+        button.addEventListener("click", () => apply(button.dataset.themeValue));
+      }
+    })();
+  </script>
+</body>
+</html>

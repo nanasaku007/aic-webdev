@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>チェックリスト｜AIエージェント入門</title>
+  <script>
+    (() => {
+      const stored = localStorage.getItem("theme");
+      const theme =
+        stored === "light" || stored === "dark"
+          ? stored
+          : matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html#top" aria-label="ホームへ">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>AIエージェント入門</span>
+      </a>
+      <nav class="nav" aria-label="サイトナビゲーション">
+        <a href="index.html#experience">体験</a>
+        <a href="index.html#architecture">アーキテクチャ</a>
+        <a href="index.html#tools">実装</a>
+        <a href="index.html#definition">位置づけ</a>
+        <a href="use-cases.html">活用例</a>
+        <a href="checklist.html" aria-current="page">チェックリスト</a>
+      </nav>
+      <div class="theme-switch" role="group" aria-label="テーマ切り替え">
+        <button type="button" class="theme-switch__button" data-theme-value="light" aria-label="ライトモード" title="ライトモード">
+          <svg class="theme-switch__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 18a6 6 0 1 1 0-12a6 6 0 0 1 0 12Zm0-14a1 1 0 0 1-1-1V2a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1Zm0 19a1 1 0 0 1-1-1v-1a1 1 0 1 1 2 0v1a1 1 0 0 1-1 1ZM4 13H3a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2Zm19 0h-1a1 1 0 1 1 0-2h1a1 1 0 1 1 0 2ZM6.22 6.22a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41Zm13.68 13.68a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41ZM17.78 6.22a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0ZM4.32 19.9a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1-1.41 0Z"/>
+          </svg>
+        </button>
+        <button type="button" class="theme-switch__button" data-theme-value="dark" aria-label="ナイトモード" title="ナイトモード">
+          <svg class="theme-switch__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M21 14.6A8.5 8.5 0 0 1 9.4 3a7.5 7.5 0 1 0 11.6 11.6Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <aside class="side-banner" aria-label="このページの目次">
+      <a href="index.html#top">Home</a>
+      <a href="#scope">スコープ</a>
+      <a href="#safety">安全設計</a>
+      <a href="#quality">品質</a>
+      <a href="#ops">運用</a>
+    </aside>
+
+    <main id="top" class="main">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1>AIエージェント設計チェックリスト</h1>
+            <p class="lead">「情報収集→推論→実行」をプロダクトに落とすときの最低限。最初のPoCから本番まで、詰まりやすい点を順番に確認できます。</p>
+            <div class="actions">
+              <a class="button button--primary" href="#scope">チェックを始める</a>
+              <a class="button button--secondary" href="use-cases.html">活用例へ戻る</a>
+            </div>
+          </div>
+
+          <aside class="panel" aria-label="補足">
+            <div class="panel__caption">
+              重要なのは「何ができるか」より「何をさせないか」。権限・承認・監査が揃うと、安心して機能を増やせます。
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="scope" class="section">
+        <div class="container">
+          <h2>1) スコープと期待値</h2>
+          <ul class="list">
+            <li><strong>成功条件</strong>：ユーザーが達成したい成果は何か（出力物・状態変化・所要時間）。</li>
+            <li><strong>失敗の許容範囲</strong>：誤りが許されない箇所、保留にすべき箇所を明確化。</li>
+            <li><strong>入力の前提</strong>：必要情報が揃わないときの質問フロー（追加質問）を用意。</li>
+            <li><strong>手動との境界</strong>：自動実行する/しないの線引き（承認が要る操作）を決める。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="safety" class="section">
+        <div class="container">
+          <h2>2) 安全設計（権限・承認・監査）</h2>
+          <ul class="list">
+            <li><strong>最小権限</strong>：ツール/APIは必要最小限のスコープに限定。</li>
+            <li><strong>承認ゲート</strong>：副作用のある操作は、実行前に「やること」を短く提示して承認。</li>
+            <li><strong>監査ログ</strong>：いつ・誰が・何を・なぜ実行したか（入力/出力/ツール呼び出し）を残す。</li>
+            <li><strong>ロールバック</strong>：誤操作時に戻せる設計（差分、バックアップ、キャンセル）を準備。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="quality" class="section">
+        <div class="container">
+          <h2>3) 品質（再現性・根拠・分解）</h2>
+          <ul class="list">
+            <li><strong>根拠提示</strong>：参照したドキュメントや前提を、短い箇条書きで示せるか。</li>
+            <li><strong>ステップ化</strong>：収集→整理→実行→検証に分け、どこで失敗したか追えるか。</li>
+            <li><strong>入力の正規化</strong>：曖昧な表現を、実行に必要な値へ変換（例：期間、環境名）。</li>
+            <li><strong>再試行戦略</strong>：タイムアウト/失敗時のリトライ条件と回数が決まっているか。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="ops" class="section">
+        <div class="container">
+          <h2>4) 運用（観測・改善・ガードレール）</h2>
+          <ul class="list">
+            <li><strong>モニタリング</strong>：失敗率、実行回数、平均所要時間、承認拒否率などを見られるか。</li>
+            <li><strong>プロンプト/設定の変更管理</strong>：更新履歴、影響範囲、ロールバック手段を用意。</li>
+            <li><strong>逸脱検知</strong>：想定外のツール呼び出しや長文の連鎖など、アラート条件があるか。</li>
+            <li><strong>問い合わせ対応</strong>：ログから原因追跡できる導線（サポート手順）があるか。</li>
+          </ul>
+          <p>ユースケースの選び方は <a href="use-cases.html">活用例</a> に戻って確認できます。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© nanasaku007</span>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = Array.from(document.querySelectorAll("[data-theme-value]"));
+
+      const apply = (theme) => {
+        root.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+        for (const button of buttons) {
+          button.setAttribute("aria-pressed", String(button.dataset.themeValue === theme));
+        }
+      };
+
+      const current = root.dataset.theme === "dark" ? "dark" : "light";
+      apply(current);
+
+      for (const button of buttons) {
+        button.addEventListener("click", () => apply(button.dataset.themeValue));
+      }
+    })();
+  </script>
+</body>
+</html>
