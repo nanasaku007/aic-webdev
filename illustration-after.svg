@@ -1,0 +1,100 @@
+<svg width="640" height="320" viewBox="0 0 640 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="何でもこなす未来の相棒のイメージ">
+  <defs>
+    <linearGradient id="bg2" x1="64" y1="28" x2="606" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAFB"/>
+      <stop offset="0.55" stop-color="#F6F7F9"/>
+      <stop offset="1" stop-color="#F2F5F4"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 168) rotate(18) scale(240 190)">
+      <stop stop-color="#10A37F" stop-opacity="0.18"/>
+      <stop offset="0.55" stop-color="#0F172A" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow2" x="-30" y="-30" width="700" height="380" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="orb" x1="242" y1="116" x2="356" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#10A37F"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#shadow2)">
+    <rect x="28" y="28" width="584" height="264" rx="22" fill="url(#bg2)"/>
+    <rect x="28.5" y="28.5" width="583" height="263" rx="21.5" stroke="#0F172A" stroke-opacity="0.10"/>
+    <rect x="28" y="28" width="584" height="264" rx="22" fill="url(#glow)"/>
+  </g>
+
+  <!-- Companion orb -->
+  <g>
+    <circle cx="290" cy="168" r="70" fill="url(#orb)"/>
+    <circle cx="290" cy="168" r="70" stroke="#0F172A" stroke-opacity="0.12" stroke-width="1.5"/>
+    <path d="M252 168c16-26 60-34 84-8 12 13 12 33-2 48-18 20-58 22-80 0-12-12-14-28-2-40Z" fill="url(#accent)" fill-opacity="0.10"/>
+    <path d="M252 168c16-26 60-34 84-8 12 13 12 33-2 48-18 20-58 22-80 0-12-12-14-28-2-40Z" stroke="#10A37F" stroke-opacity="0.30" stroke-width="1.5" stroke-linejoin="round"/>
+
+    <!-- Subtle "thinking" rings -->
+    <path d="M228 168c0-34 28-62 62-62s62 28 62 62-28 62-62 62-62-28-62-62Z" stroke="#0F172A" stroke-opacity="0.06" stroke-width="10"/>
+    <path d="M228 168c0-34 28-62 62-62s62 28 62 62-28 62-62 62-62-28-62-62Z" stroke="#10A37F" stroke-opacity="0.08" stroke-width="10" stroke-dasharray="24 18" stroke-linecap="round"/>
+  </g>
+
+  <!-- Tool pills -->
+  <g stroke="#0F172A" stroke-opacity="0.12" stroke-width="1.5" fill="#FFFFFF">
+    <rect x="106" y="112" width="120" height="34" rx="17"/>
+    <rect x="96" y="170" width="136" height="34" rx="17"/>
+    <rect x="118" y="228" width="108" height="34" rx="17"/>
+
+    <rect x="414" y="112" width="120" height="34" rx="17"/>
+    <rect x="408" y="170" width="140" height="34" rx="17"/>
+    <rect x="424" y="228" width="112" height="34" rx="17"/>
+  </g>
+
+  <!-- Icons inside pills -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- doc -->
+    <path d="M124 122h16v18h-16v-18Z" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2"/>
+    <path d="M128 128h8M128 133h8" stroke="#0F172A" stroke-opacity="0.30" stroke-width="2"/>
+    <path d="M150 129h52" stroke="#0F172A" stroke-opacity="0.28" stroke-width="2"/>
+    <!-- code -->
+    <path d="M114 183l-8 4 8 4M132 183l8 4-8 4" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2"/>
+    <path d="M150 187h64" stroke="#0F172A" stroke-opacity="0.28" stroke-width="2"/>
+    <!-- calendar -->
+    <path d="M132 238h14v16h-14v-16Z" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2"/>
+    <path d="M132 244h14" stroke="#0F172A" stroke-opacity="0.30" stroke-width="2"/>
+    <path d="M156 246h54" stroke="#0F172A" stroke-opacity="0.28" stroke-width="2"/>
+
+    <!-- checklist -->
+    <path d="M436 126l6 6 12-14" stroke="#10A37F" stroke-width="2.4"/>
+    <path d="M460 129h56" stroke="#0F172A" stroke-opacity="0.28" stroke-width="2"/>
+
+    <path d="M426 183l6 6 12-14" stroke="#10A37F" stroke-width="2.4"/>
+    <path d="M460 187h72" stroke="#0F172A" stroke-opacity="0.28" stroke-width="2"/>
+
+    <path d="M444 244h12v12h-12v-12Z" stroke="#0F172A" stroke-opacity="0.30" stroke-width="2"/>
+    <path d="M464 250h54" stroke="#0F172A" stroke-opacity="0.28" stroke-width="2"/>
+  </g>
+
+  <!-- Connectors to orb -->
+  <g stroke="#0F172A" stroke-opacity="0.16" stroke-width="2" stroke-linecap="round">
+    <path d="M226 129C248 134 258 142 270 154"/>
+    <path d="M232 187C252 186 262 184 270 180"/>
+    <path d="M226 245C248 236 258 228 270 212"/>
+
+    <path d="M414 129C392 134 382 142 370 154"/>
+    <path d="M408 187C388 186 378 184 370 180"/>
+    <path d="M424 245C400 236 388 228 370 212"/>
+  </g>
+
+  <!-- Small sparkles -->
+  <g stroke="#10A37F" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round">
+    <path d="M520 78v10M515 83h10"/>
+    <path d="M170 84v10M165 89h10"/>
+  </g>
+  <g stroke="#0EA5E9" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round">
+    <path d="M552 98v8M548 102h8"/>
+  </g>
+</svg>
+

@@ -1,0 +1,92 @@
+<svg width="640" height="320" viewBox="0 0 640 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="使いづらく融通の利かない昔のチャットボットのイメージ">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="30" x2="592" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAFB"/>
+      <stop offset="1" stop-color="#F2F3F5"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 150) rotate(20) scale(270 190)">
+      <stop stop-color="#111827" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#111827" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-30" y="-30" width="700" height="380" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="panel" x1="120" y1="86" x2="520" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F8FAFC"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="28" y="28" width="584" height="264" rx="22" fill="url(#bg)"/>
+    <rect x="28.5" y="28.5" width="583" height="263" rx="21.5" stroke="#0F172A" stroke-opacity="0.10"/>
+    <rect x="28" y="28" width="584" height="264" rx="22" fill="url(#spot)"/>
+  </g>
+
+  <!-- Rigid flow "rails" -->
+  <path d="M108 98H290" stroke="#0F172A" stroke-opacity="0.18" stroke-width="2" stroke-linecap="round"/>
+  <path d="M108 134H290" stroke="#0F172A" stroke-opacity="0.14" stroke-width="2" stroke-linecap="round"/>
+  <path d="M108 170H290" stroke="#0F172A" stroke-opacity="0.10" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Old chatbot window -->
+  <g>
+    <rect x="84" y="72" width="260" height="200" rx="16" fill="url(#panel)"/>
+    <rect x="84.75" y="72.75" width="258.5" height="198.5" rx="15.25" stroke="#0F172A" stroke-opacity="0.12" stroke-width="1.5"/>
+
+    <rect x="104" y="92" width="220" height="10" rx="5" fill="#0F172A" fill-opacity="0.08"/>
+    <rect x="104" y="110" width="180" height="10" rx="5" fill="#0F172A" fill-opacity="0.06"/>
+
+    <!-- Canned option buttons -->
+    <g>
+      <rect x="104" y="140" width="132" height="28" rx="9" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="104" y="176" width="150" height="28" rx="9" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="104" y="212" width="120" height="28" rx="9" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <path d="M118 154H170" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+      <path d="M118 190H188" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+      <path d="M118 226H162" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Error callout -->
+    <g>
+      <rect x="244" y="200" width="80" height="40" rx="12" fill="#FEF2F2" stroke="#EF4444" stroke-opacity="0.35"/>
+      <path d="M260 220H308" stroke="#EF4444" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="270" cy="220" r="8" fill="#EF4444" fill-opacity="0.14"/>
+      <path d="M270 214V222" stroke="#EF4444" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="270" cy="226.5" r="1.3" fill="#EF4444"/>
+    </g>
+  </g>
+
+  <!-- Flowchart / rigidity on the right -->
+  <g>
+    <rect x="376" y="88" width="200" height="168" rx="18" fill="#FFFFFF"/>
+    <rect x="376.75" y="88.75" width="198.5" height="166.5" rx="17.25" stroke="#0F172A" stroke-opacity="0.12" stroke-width="1.5"/>
+
+    <!-- Branching nodes -->
+    <g stroke="#0F172A" stroke-opacity="0.18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M408 120H536"/>
+      <path d="M408 160H536"/>
+      <path d="M408 200H496"/>
+      <path d="M496 200V224"/>
+      <path d="M496 224H536"/>
+    </g>
+    <g>
+      <rect x="396" y="110" width="44" height="20" rx="8" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="396" y="150" width="44" height="20" rx="8" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="396" y="190" width="56" height="20" rx="8" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="516" y="110" width="48" height="20" rx="8" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="516" y="150" width="48" height="20" rx="8" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+      <rect x="516" y="214" width="48" height="20" rx="8" fill="#F3F4F6" stroke="#0F172A" stroke-opacity="0.12"/>
+    </g>
+
+    <!-- Locked / constrained indicator -->
+    <g transform="translate(520 240)">
+      <path d="M24 10V7.5C24 3.9 21.1 1 17.5 1C13.9 1 11 3.9 11 7.5V10" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+      <rect x="8" y="10" width="19" height="16" rx="6" fill="#0F172A" fill-opacity="0.05" stroke="#0F172A" stroke-opacity="0.14"/>
+      <path d="M17.5 15V20" stroke="#0F172A" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Subtle "stuck" scribble -->
+  <path d="M270 64c12-10 22-10 30 0M304 64c10-8 20-8 28 0" stroke="#0F172A" stroke-opacity="0.18" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
